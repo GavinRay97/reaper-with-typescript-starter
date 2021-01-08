@@ -1,0 +1,22 @@
+{
+  "name": "reascript-to-typescript-converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tstl",
+    "dev": "tstl --watch",
+    "generate-types": "ts-node resources/generate-typescript-from-lua-defs.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "lua-types": "^2.8.0",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.20.13",
+    "typescript-to-lua": "^0.37.1"
+  },
+  "dependencies": {
+    "typescript-tstl-plugin": "^0.2.0"
+  }
+}

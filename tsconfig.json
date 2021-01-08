@@ -1,0 +1,30 @@
+{
+  "include": ["./src", "reaper-types.d.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "rootDir": "src",
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["ESNext"],
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,  
+    "resolveJsonModule": true,
+    "types": ["node", "lua-types/jit", "typescript-to-lua/language-extensions", "./resources/generated/reaper-types"],
+  },
+  "plugins": [{ "name": "typescript-tstl-plugin" }],
+  "tstl": {
+    // "luaTarget":	"JIT", "5.3", "5.2", "5.1" (default: "JIT")	Specifies the Lua version you want to generate code for.
+    "luaTarget": "5.3",
+    // "noImplicitSelf": true, false (default: false)	If true, treats all project files as if they were prefixed with @noSelfInFile
+    // "noHeader":	true, false (default: false)	Set this to true if you don't want to include our header in the output.
+    // "luaLibImport":	"inline", "require", "always", "none" (default: "require")	We polyfill certain JavaScript features with Lua functions, this option specifies how these functions are imported into the Lua output.
+    // "sourceMapTraceback":	true, false (default: false)	Overrides Lua's debug.traceback to apply sourcemaps to Lua stacktraces. This will make error messages point to your original TypeScript code instead of the generated Lua.
+    // "luaBundle":	File path (relative to the tsconfig.json)	Will bundle all output lua files into a single bundle file. Requires luaBundleEntry to be set!
+    "luaBundle": "./lua/bundle.lua",
+    // "luaBundleEntry":	File path (relative to the tsconfig.json)	This should be the name/path of the TS file in your project that will serve as entry point to the bundled code.
+    "luaBundleEntry": "src/example.ts",
+  }
+}
